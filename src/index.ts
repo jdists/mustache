@@ -1,6 +1,5 @@
 import * as mustache from 'mustache'
 import * as jdistsUtil from 'jdists-util'
-import * as jsyaml from 'js-yaml'
 
 interface IMustacheAttrs extends jdistsUtil.IAttrs {
   /**
@@ -19,22 +18,6 @@ interface IMustacheAttrs extends jdistsUtil.IAttrs {
  * @param scope.execImport 导入数据
  * @return 返回渲染后的结果
  * @example processor():base
-  ```js
-  let attrs = {
-    data: '#name'
-  }
-  let scope = {
-    execImport: function (importion) {
-      return `
-        name: tom
-        age: 13
-      `
-    },
-  }
-  console.log(processor('<b>{{name}} - {{age}}</b>', attrs, scope))
-  // > <b>tom - 13</b>
-  ```
- * @example processor():execImport is object
   ```js
   let attrs = {
     data: '#name',
@@ -70,9 +53,6 @@ export = (function (content: string, attrs: IMustacheAttrs, scope: jdistsUtil.IS
   let data = null
   if (attrs.data) {
     data = scope.execImport(attrs.data)
-    if (typeof data === 'string') {
-      data = jsyaml.safeLoad(data)
-    }
   }
   return mustache.render(content, data)
 }) as jdistsUtil.IProcessor

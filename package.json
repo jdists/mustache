@@ -1,6 +1,6 @@
 {
   "name": "@jdists/mustache",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "mustache as jdists processor",
   "main": "lib/index",
   "typings": "lib/index.d.ts",
@@ -32,8 +32,7 @@
   },
   "homepage": "https://github.com/jdists/mustache#readme",
   "dependencies": {
-    "jdists-util": "^0.0.7",
-    "js-yaml": "^3.10.0",
+    "jdists-util": "^0.1.2",
     "mustache": "^2.3.0"
   },
   "devDependencies": {
